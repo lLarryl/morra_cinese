@@ -1,0 +1,3 @@
+SASSO, CARTA, FORBICE
+L'interfaccia è costituita dai tre pulsanti per la selezione dell'utente, la scelta (random) dell'IA, il punteggio di entrambi i giocatori e la scritta "WIN" o "LOSE". La scelta del computer sarà randomica e avverrò ogni qualvolta l'utente selezionerà
+una delle tre scelte senza soluzione di continuità. Vince il primo che raggiunge 10 punti e in quel caso il punteggio tornerà a zero in automatico.
