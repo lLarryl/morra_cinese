@@ -1,9 +1,9 @@
 import React from 'react';
 
-const userChoice = (props) => {
+const UserChoice = (props) => {
     return(
-        <button value={props.value}>{props.value}</button>
+        <button onClick={() => props.handleCalculatorChoice(props.value)} value={props.value}>{props.value}</button>
     );
 };
 
-export default userChoice;
+export default UserChoice;
