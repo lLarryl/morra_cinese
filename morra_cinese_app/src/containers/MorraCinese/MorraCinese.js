@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import UserChoice from '../../components/UserChoice/UserChoice';
 import CalculatorChoiceLabel from './../../components/CalculatorChoiceLabel/CalculatorChoiceLabel';
 import PlayLabel from './../../components/PlayLabel/PlayLabel';
@@ -6,7 +6,7 @@ import PlayersPoints from './../PlayersPoints/PlayersPoints';
 import ResetButton from './../../components/ResetButton/ResetButton';
 
 const MorraCinese = props => {
-    const [calculatorChoice, setCalculatorChoice] = useState(null);
+    const [calculatorChoice, setCalculatorChoice] = useState();
     const [playState, setPlayState] = useState(null);
     const [userPoints, setUserPoints] = useState(0);
     const [calculatorPoints, setCalculatorPoints] = useState(0);
@@ -23,14 +23,18 @@ const MorraCinese = props => {
     function checkPlayState(userChoiceValue)
     {
         console.log(userChoiceValue);
+        console.log(calculatorChoice);
         let winner = false;
-        if(userChoiceValue === "ROCK" && calculatorChoice === "SCISSOR") {
+        if(userChoiceValue === calculatorChoice) {
+            winner = true;
+        }
+        if(userChoiceValue === "ROCK" && calculatorChoice === "SCISSORS") {
             winner = true;
         }
         if(userChoiceValue === "PAPER" && calculatorChoice === "ROCK") {
             winner = true;
         }
-        if(userChoiceValue === "SCISSOR" && calculatorChoice === "PAPER") {
+        if(userChoiceValue === "SCISSORS" && calculatorChoice === "PAPER") {
             winner = true;
         }
 
