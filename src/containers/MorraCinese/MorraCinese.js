@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import UserChoice from '../../components/UserChoice/UserChoice';
 import CalculatorChoiceLabel from './../../components/CalculatorChoiceLabel/CalculatorChoiceLabel';
 import PlayLabel from './../../components/PlayLabel/PlayLabel';
@@ -7,15 +7,16 @@ import ResetButton from './../../components/ResetButton/ResetButton';
 
 const MorraCinese = props => {
     const [calculatorChoice, setCalculatorChoice] = useState();
-    const [playState, setPlayState] = useState(null);
+    const [playState, setPlayState] = useState("");
     const [userPoints, setUserPoints] = useState(0);
     const [calculatorPoints, setCalculatorPoints] = useState(0);
     const userChoiceValues = ["ROCK", "SCISSORS", "PAPER"];
+    const matchStatuses = ["WIN", "LOOSE", "TIE"];
 
     function handleCalculatorChoice(userChoiceValue)
     {
         setCalculatorChoice(
-            userChoiceValues[Math.floor(Math.random() * 2)]
+            userChoiceValues[Math.floor(Math.random() * userChoiceValues.length)]
         );
         checkPlayState(userChoiceValue);
     }
@@ -24,33 +25,36 @@ const MorraCinese = props => {
     {
         console.log(userChoiceValue);
         console.log(calculatorChoice);
-        let winner = false;
+        let matchStatus = matchStatuses[1];
         if(userChoiceValue === calculatorChoice) {
-            winner = true;
+            setPlayState(
+                matchStatuses[2]
+            );
+            return;
         }
         if(userChoiceValue === "ROCK" && calculatorChoice === "SCISSORS") {
-            winner = true;
+            matchStatus = matchStatuses[0];
         }
         if(userChoiceValue === "PAPER" && calculatorChoice === "ROCK") {
-            winner = true;
+            matchStatus = matchStatuses[0];
         }
         if(userChoiceValue === "SCISSORS" && calculatorChoice === "PAPER") {
-            winner = true;
+            matchStatus = matchStatuses[0];
         }
 
         setPlayState(
-            winner
+            matchStatus
         );
 
-        setPoints(winner);
+        setPoints(matchStatus);
     }
 
-    function setPoints(winner)
+    function setPoints(matchStatus)
     {
         if(userPoints === 10 || calculatorPoints === 10) {
             resetPoints();
         }
-        if(winner) {
+        if(matchStatus === matchStatuses[0]) {
             setUserPoints(prevPoints => (
                 prevPoints + 1
             ));
@@ -85,7 +89,7 @@ const MorraCinese = props => {
             }
             </div>
             {
-                playState !== null && <PlayLabel playState={playState} />
+                playState !== "" && <PlayLabel playState={playState} />
             }
             <PlayersPoints userPoints={userPoints} calculatorPoints={calculatorPoints} />
             <ResetButton resetHandler={handleReset} />
