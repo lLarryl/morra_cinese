@@ -3,12 +3,12 @@ import UserPointsLabel from './../../components/PlayersPointsLabel/UserPointsLab
 import CalculatorPointsLabel from './../../components/PlayersPointsLabel/CalculatorPointsLabel';
 
 const PlayerPoints = props => {
-    return (
-        <div>
-            <UserPointsLabel points={props.userPoints} />
-            <CalculatorPointsLabel points={props.calculatorPoints} />
-        </div>
-    );
+  return (
+    <div>
+      <UserPointsLabel points={props.userPoints} />
+      <CalculatorPointsLabel points={props.calculatorPoints} />
+    </div>
+  );
 };
 
 export default PlayerPoints;
