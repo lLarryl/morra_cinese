@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import UserChoice from '../../components/UserChoice/UserChoice';
 import CalculatorChoiceLabel from './../../components/CalculatorChoiceLabel/CalculatorChoiceLabel';
 import PlayLabel from './../../components/PlayLabel/PlayLabel';
@@ -7,6 +7,7 @@ import ResetButton from './../../components/ResetButton/ResetButton';
 
 const MorraCinese = props => {
   const [calculatorChoice, setCalculatorChoice] = useState();
+  const [userChoice, setUserChoice] = useState();
   const [playState, setPlayState] = useState('');
   const [userPoints, setUserPoints] = useState(0);
   const [calculatorPoints, setCalculatorPoints] = useState(0);
@@ -15,13 +16,14 @@ const MorraCinese = props => {
 
   function handleCalculatorChoice(userChoiceValue) {
     setCalculatorChoice(userChoiceValues[Math.floor(Math.random() * userChoiceValues.length)]);
-    checkPlayState(userChoiceValue);
+    setUserChoice(userChoiceValue);
   }
 
   function checkPlayState(userChoiceValue) {
     console.log(userChoiceValue);
     console.log(calculatorChoice);
     let matchStatus = matchStatuses[1];
+
     if (userChoiceValue === calculatorChoice) {
       setPlayState(matchStatuses[2]);
       return;
@@ -37,7 +39,6 @@ const MorraCinese = props => {
     }
 
     setPlayState(matchStatus);
-
     setPoints(matchStatus);
   }
 
@@ -62,6 +63,11 @@ const MorraCinese = props => {
     setPlayState(null);
     setCalculatorChoice('');
   }
+
+  useEffect(() => (calculatorChoice && userChoice ? checkPlayState(userChoice) : undefined), [
+    calculatorChoice,
+    userChoice,
+  ]);
 
   return (
     <div>
