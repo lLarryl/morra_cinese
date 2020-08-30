@@ -20,8 +20,6 @@ const MorraCinese = props => {
   }
 
   function checkPlayState(userChoiceValue) {
-    console.log(userChoiceValue);
-    console.log(calculatorChoice);
     let matchStatus = matchStatuses[1];
 
     if (userChoiceValue === calculatorChoice) {
@@ -70,11 +68,11 @@ const MorraCinese = props => {
   ]);
 
   return (
-    <div>
+    <div className="App">
       <CalculatorChoiceLabel choice={calculatorChoice} />
       <div>
         {userChoiceValues.map(choiceValue => (
-          <UserChoice handleCalculatorChoice={handleCalculatorChoice} value={choiceValue} key={choiceValue} />
+          <UserChoice handleClick={() => handleCalculatorChoice(choiceValue)} value={choiceValue} key={choiceValue} />
         ))}
       </div>
       {playState !== '' && <PlayLabel playState={playState} />}

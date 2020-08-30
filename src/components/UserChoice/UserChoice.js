@@ -1,11 +1,5 @@
 import React from 'react';
 
-const UserChoice = props => {
-  return (
-    <button onClick={() => props.handleCalculatorChoice(props.value)} value={props.value}>
-      {props.value}
-    </button>
-  );
-};
+const UserChoice = ({ handleClick, value }) => <button onClick={handleClick}>{value}</button>;
 
 export default UserChoice;
