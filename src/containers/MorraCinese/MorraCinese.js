@@ -23,8 +23,7 @@ const MorraCinese = props => {
 
     function checkPlayState(userChoiceValue)
     {
-        console.log(userChoiceValue);
-        console.log(calculatorChoice);
+        console.log(`userChoiceValue: ${userChoiceValue}`, `calculatorChoice: ${calculatorChoice}`);
         let matchStatus = matchStatuses[1];
         if(userChoiceValue === calculatorChoice) {
             setPlayState(
@@ -46,13 +45,14 @@ const MorraCinese = props => {
             matchStatus
         );
 
-        setPoints(matchStatus);
+        determinePoints(matchStatus);
     }
 
-    function setPoints(matchStatus)
+    function determinePoints(matchStatus)
     {
+        console.log('determine' + matchStatus);
         if(userPoints === 10 || calculatorPoints === 10) {
-            resetPoints();
+            resetPoints();  
         }
         if(matchStatus === matchStatuses[0]) {
             setUserPoints(prevPoints => (
