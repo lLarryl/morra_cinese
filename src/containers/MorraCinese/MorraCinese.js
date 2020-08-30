@@ -6,8 +6,8 @@ import PlayersPoints from './../PlayersPoints/PlayersPoints';
 import ResetButton from './../../components/ResetButton/ResetButton';
 
 const MorraCinese = props => {
-  const [calculatorChoice, setCalculatorChoice] = useState();
-  const [userChoice, setUserChoice] = useState();
+  const [calculatorChoice, setCalculatorChoice] = useState('');
+  const [userChoice, setUserChoice] = useState('');
   const [playState, setPlayState] = useState('');
   const [userPoints, setUserPoints] = useState(0);
   const [calculatorPoints, setCalculatorPoints] = useState(0);
@@ -39,10 +39,10 @@ const MorraCinese = props => {
     }
 
     setPlayState(matchStatus);
-    setPoints(matchStatus);
+    determinePoints(matchStatus);
   }
 
-  function setPoints(matchStatus) {
+  function determinePoints(matchStatus) {
     if (userPoints === 10 || calculatorPoints === 10) {
       resetPoints();
     }
