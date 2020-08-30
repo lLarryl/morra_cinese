@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import UserChoice from '../../components/UserChoice/UserChoice';
 import CalculatorChoiceLabel from './../../components/CalculatorChoiceLabel/CalculatorChoiceLabel';
 import PlayLabel from './../../components/PlayLabel/PlayLabel';
@@ -6,7 +6,8 @@ import PlayersPoints from './../PlayersPoints/PlayersPoints';
 import ResetButton from './../../components/ResetButton/ResetButton';
 
 const MorraCinese = props => {
-    const [calculatorChoice, setCalculatorChoice] = useState();
+    const [calculatorChoice, setCalculatorChoice] = useState("");
+    const [userChoice, setUserChoice] = useState("");
     const [playState, setPlayState] = useState("");
     const [userPoints, setUserPoints] = useState(0);
     const [calculatorPoints, setCalculatorPoints] = useState(0);
@@ -18,34 +19,42 @@ const MorraCinese = props => {
         setCalculatorChoice(
             userChoiceValues[Math.floor(Math.random() * userChoiceValues.length)]
         );
-        checkPlayState(userChoiceValue);
+        setUserChoice(
+            userChoiceValue
+        );
     }
 
-    function checkPlayState(userChoiceValue)
+    useEffect(() => {
+        checkPlayState();
+    }, [calculatorChoice]);
+
+    function checkPlayState()
     {
-        console.log(`userChoiceValue: ${userChoiceValue}`, `calculatorChoice: ${calculatorChoice}`);
-        let matchStatus = matchStatuses[1];
-        if(userChoiceValue === calculatorChoice) {
+        console.log(`userChoiceValue: ${userChoice}`, `calculatorChoice: ${calculatorChoice}`);
+        if(calculatorChoice !== "") {
+            let matchStatus = matchStatuses[1];
+            if(userChoice === calculatorChoice) {
+                setPlayState(
+                    matchStatuses[2]
+                );
+                return;
+            }
+            if(userChoice === "ROCK" && calculatorChoice === "SCISSORS") {
+                matchStatus = matchStatuses[0];
+            }
+            if(userChoice === "PAPER" && calculatorChoice === "ROCK") {
+                matchStatus = matchStatuses[0];
+            }
+            if(userChoice === "SCISSORS" && calculatorChoice === "PAPER") {
+                matchStatus = matchStatuses[0];
+            }
+    
             setPlayState(
-                matchStatuses[2]
+                matchStatus
             );
-            return;
+    
+            determinePoints(matchStatus);
         }
-        if(userChoiceValue === "ROCK" && calculatorChoice === "SCISSORS") {
-            matchStatus = matchStatuses[0];
-        }
-        if(userChoiceValue === "PAPER" && calculatorChoice === "ROCK") {
-            matchStatus = matchStatuses[0];
-        }
-        if(userChoiceValue === "SCISSORS" && calculatorChoice === "PAPER") {
-            matchStatus = matchStatuses[0];
-        }
-
-        setPlayState(
-            matchStatus
-        );
-
-        determinePoints(matchStatus);
     }
 
     function determinePoints(matchStatus)
