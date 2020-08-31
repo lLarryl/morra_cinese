@@ -1,11 +1,6 @@
 import React from 'react';
+import { Label } from './../Agnostic/Atoms/Label/Label';
 
-const CalculatorPointsLabel = props => {
-    return(
-        <div>
-            <span>Calculator points: {props.points}</span>
-        </div>
-    );
-};
+const CalculatorPointsLabel = ({ points }) => <Label>Calculator points: {points}</Label>;
 
 export default CalculatorPointsLabel;
