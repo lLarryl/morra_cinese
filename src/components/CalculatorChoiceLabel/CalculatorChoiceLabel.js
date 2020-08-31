@@ -1,11 +1,6 @@
 import React from 'react';
+import { Label } from './../Agnostic/Atoms/Label/Label';
 
-const CalculatorChoiceLabel = props => {
-  return (
-    <div>
-      <span>The calculator has chosen... {props.choice !== '' ? props.choice : ''}</span>
-    </div>
-  );
-};
+const CalculatorChoiceLabel = ({choice}) => <Label value={"The calculator has chosen... " + (choice !== '' ? choice : '')} />;
 
 export default CalculatorChoiceLabel;

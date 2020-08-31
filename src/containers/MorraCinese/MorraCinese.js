@@ -20,31 +20,28 @@ const MorraCinese = props => {
   }
 
   function checkPlayState(userChoiceValue) {
-    let matchStatus = matchStatuses[1];
-
-    if (userChoiceValue === calculatorChoice) {
-      setPlayState(matchStatuses[2]);
-      return;
-    }
-    if (userChoiceValue === 'ROCK' && calculatorChoice === 'SCISSORS') {
-      matchStatus = matchStatuses[0];
-    }
-    if (userChoiceValue === 'PAPER' && calculatorChoice === 'ROCK') {
-      matchStatus = matchStatuses[0];
-    }
-    if (userChoiceValue === 'SCISSORS' && calculatorChoice === 'PAPER') {
-      matchStatus = matchStatuses[0];
-    }
-
-    setPlayState(matchStatus);
-    determinePoints(matchStatus);
+    setPlayState(() => {
+        if (userChoiceValue === calculatorChoice) {
+            return matchStatuses[2];
+        }
+        if (userChoiceValue === 'ROCK' && calculatorChoice === 'SCISSORS') {
+            return matchStatuses[0];
+        }
+        if (userChoiceValue === 'PAPER' && calculatorChoice === 'ROCK') {
+            return matchStatuses[0];
+        }
+        if (userChoiceValue === 'SCISSORS' && calculatorChoice === 'PAPER') {
+            return matchStatuses[0];
+        }
+        return matchStatuses[1];
+    });
   }
 
-  function determinePoints(matchStatus) {
+  function determinePoints() {
     if (userPoints === 10 || calculatorPoints === 10) {
       resetPoints();
     }
-    if (matchStatus === matchStatuses[0]) {
+    if (playState === matchStatuses[0]) {
       setUserPoints(prevPoints => prevPoints + 1);
       return;
     }
@@ -66,6 +63,10 @@ const MorraCinese = props => {
     calculatorChoice,
     userChoice,
   ]);
+
+  useEffect(() => (playState && playState != matchStatuses[2] ? determinePoints() : undefined), [
+    playState  
+  ])
 
   return (
     <div className="App">
