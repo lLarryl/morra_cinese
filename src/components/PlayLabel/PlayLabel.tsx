@@ -1,8 +1,8 @@
 import React from 'react';
+import {matchStatuses} from './../../containers/MorraCinese/MorraCinese';
 
 const PlayLabel = ({playState}: {playState: string}) => {
   let status = '';
-  const matchStatuses = ['WIN', 'LOOSE', 'TIE'];
 
   if (playState === matchStatuses[0]) {
     status = 'WIN :D';

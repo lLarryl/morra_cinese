@@ -6,14 +6,15 @@ import PlayLabel from '../../components/PlayLabel/PlayLabel';
 import PlayersPoints from '../PlayersPoints/PlayersPoints';
 import ResetButton from '../../components/ResetButton/ResetButton';
 
+export const matchStatuses: string[] = ['WIN', 'LOOSE', 'TIE'];
+
 const MorraCinese = () => {
   const [calculatorChoice, setCalculatorChoice] = useState('');
   const [userChoice, setUserChoice] = useState('');
   const [playState, setPlayState] = useState('');
   const [userPoints, setUserPoints] = useState(0);
   const [calculatorPoints, setCalculatorPoints] = useState(0);
-  const userChoiceValues = ['ROCK', 'SCISSORS', 'PAPER'];
-  const matchStatuses = ['WIN', 'LOOSE', 'TIE'];
+  const userChoiceValues: string[] = ['ROCK', 'SCISSORS', 'PAPER'];
 
   function handleCalculatorChoice(userChoiceValue: string): void {
     setCalculatorChoice(userChoiceValues[Math.floor(Math.random() * userChoiceValues.length)]);
