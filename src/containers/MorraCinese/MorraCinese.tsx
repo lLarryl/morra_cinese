@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import * as React from 'react';
+import { useState, useEffect } from 'react';
 import UserChoice from '../../components/UserChoice/UserChoice';
-import CalculatorChoiceLabel from './../../components/CalculatorChoiceLabel/CalculatorChoiceLabel';
-import PlayLabel from './../../components/PlayLabel/PlayLabel';
-import PlayersPoints from './../PlayersPoints/PlayersPoints';
-import ResetButton from './../../components/ResetButton/ResetButton';
+import CalculatorChoiceLabel from '../../components/CalculatorChoiceLabel/CalculatorChoiceLabel';
+import PlayLabel from '../../components/PlayLabel/PlayLabel';
+import PlayersPoints from '../PlayersPoints/PlayersPoints';
+import ResetButton from '../../components/ResetButton/ResetButton';
 
-const MorraCinese = props => {
+const MorraCinese = () => {
   const [calculatorChoice, setCalculatorChoice] = useState('');
   const [userChoice, setUserChoice] = useState('');
   const [playState, setPlayState] = useState('');
@@ -14,12 +15,12 @@ const MorraCinese = props => {
   const userChoiceValues = ['ROCK', 'SCISSORS', 'PAPER'];
   const matchStatuses = ['WIN', 'LOOSE', 'TIE'];
 
-  function handleCalculatorChoice(userChoiceValue) {
+  function handleCalculatorChoice(userChoiceValue: string): void {
     setCalculatorChoice(userChoiceValues[Math.floor(Math.random() * userChoiceValues.length)]);
     setUserChoice(userChoiceValue);
   }
 
-  function checkPlayState(userChoiceValue) {
+  function checkPlayState(userChoiceValue: string): void {
     setPlayState(() => {
         if (userChoiceValue === calculatorChoice) {
             return matchStatuses[2];
@@ -37,7 +38,7 @@ const MorraCinese = props => {
     });
   }
 
-  function determinePoints() {
+  function determinePoints(): void {
     if (userPoints === 10 || calculatorPoints === 10) {
       resetPoints();
     }
@@ -48,14 +49,14 @@ const MorraCinese = props => {
     setCalculatorPoints(prevPoints => prevPoints + 1);
   }
 
-  function resetPoints() {
+  function resetPoints(): void {
     setUserPoints(0);
     setCalculatorPoints(0);
   }
 
-  function handleReset() {
+  function handleReset(): void {
     resetPoints();
-    setPlayState(null);
+    setPlayState("");
     setCalculatorChoice('');
   }
 

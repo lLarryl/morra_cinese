@@ -1,12 +1,12 @@
 import React from 'react';
 
-const PlayLabel = props => {
+const PlayLabel = ({playState}: {playState: string}) => {
   let status = '';
   const matchStatuses = ['WIN', 'LOOSE', 'TIE'];
 
-  if (props.playState === matchStatuses[0]) {
+  if (playState === matchStatuses[0]) {
     status = 'WIN :D';
-  } else if (props.playState === matchStatuses[1]) {
+  } else if (playState === matchStatuses[1]) {
     status = 'LOOSE :(';
   } else {
     status = 'DID THE SAME...';
