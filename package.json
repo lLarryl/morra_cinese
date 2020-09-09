@@ -34,8 +34,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "format": "prettier --config ./.prettierrc.js --write \"./src/**/**/**/*.js\" \"./src/**/**/**/*.jsx\"",
-    "format:check": "prettier --check \"./src/**/**/**/*.js\" \"./src/**/**/**/*.jsx\""
+    "format": "prettier --config ./.prettierrc.js --write \"./src/**/**/**/*.js\" \"./src/**/**/**/*.jsx\" \"./src/**/**/**/*.tsx\"",
+    "format:check": "prettier --check \"./src/**/**/**/*.js\" \"./src/**/**/**/*.jsx\" \"./src/**/**/**/*.tsx\""
   },
   "eslintConfig": {
     "extends": "react-app"

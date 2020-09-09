@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
-import UserChoice from '../../components/UserChoice/UserChoice';
-import CalculatorChoiceLabel from '../../components/CalculatorChoiceLabel/CalculatorChoiceLabel';
-import PlayLabel from '../../components/PlayLabel/PlayLabel';
+import UserChoice from '../../Atoms/UserChoice/UserChoice';
+import CalculatorChoiceLabel from '../../../CalculatorChoiceLabel/CalculatorChoiceLabel';
+import PlayLabel from '../../Atoms/PlayLabel/PlayLabel';
 import PlayersPoints from '../PlayersPoints/PlayersPoints';
-import ResetButton from '../../components/ResetButton/ResetButton';
+import ResetButton from '../../Atoms/ResetButton/ResetButton';
 
 export const matchStatuses: Array<string> = ['WIN', 'LOOSE', 'TIE'];
 
@@ -24,19 +24,19 @@ const MorraCinese = () => {
 
   function checkPlayState(userChoiceValue: string): void {
     setPlayState(() => {
-        if (userChoiceValue === calculatorChoice) {
-            return matchStatuses[2];
-        }
-        if (userChoiceValue === userChoiceValues[0] && calculatorChoice === userChoiceValues[1]) {
-            return matchStatuses[0];
-        }
-        if (userChoiceValue === userChoiceValues[2] && calculatorChoice === userChoiceValues[0]) {
-            return matchStatuses[0];
-        }
-        if (userChoiceValue === userChoiceValues[1] && calculatorChoice === userChoiceValues[2]) {
-            return matchStatuses[0];
-        }
-        return matchStatuses[1];
+      if (userChoiceValue === calculatorChoice) {
+        return matchStatuses[2];
+      }
+      if (userChoiceValue === userChoiceValues[0] && calculatorChoice === userChoiceValues[1]) {
+        return matchStatuses[0];
+      }
+      if (userChoiceValue === userChoiceValues[2] && calculatorChoice === userChoiceValues[0]) {
+        return matchStatuses[0];
+      }
+      if (userChoiceValue === userChoiceValues[1] && calculatorChoice === userChoiceValues[2]) {
+        return matchStatuses[0];
+      }
+      return matchStatuses[1];
     });
   }
 
@@ -58,7 +58,7 @@ const MorraCinese = () => {
 
   function handleReset(): void {
     resetPoints();
-    setPlayState("");
+    setPlayState('');
     setCalculatorChoice('');
   }
 
@@ -67,9 +67,7 @@ const MorraCinese = () => {
     userChoice,
   ]);
 
-  useEffect(() => (playState && playState != matchStatuses[2] ? determinePoints() : undefined), [
-    playState  
-  ])
+  useEffect(() => (playState && playState != matchStatuses[2] ? determinePoints() : undefined), [playState]);
 
   return (
     <div className="App">

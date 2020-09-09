@@ -1,6 +1,6 @@
 import * as React from 'react';
 import './App.css';
-import MorraCinese from './containers/MorraCinese/MorraCinese';
+import MorraCinese from './components/Custom/containers/MorraCinese/MorraCinese';
 
 const App = () => <MorraCinese />;
 

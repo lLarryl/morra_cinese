@@ -1,12 +1,13 @@
 import * as React from 'react';
 import { FC } from 'react';
-import {matchStatuses} from './../../containers/MorraCinese/MorraCinese';
+import { matchStatuses } from '../../containers/MorraCinese/MorraCinese';
+import { Label } from '../../../Agnostic/Atoms/Label/Label';
 
-interface FCPlayLabel {
+interface PlayLabelProps {
   playState: string;
 }
 
-const PlayLabel: FC<FCPlayLabel> = ({playState}) => {
+const PlayLabel: FC<PlayLabelProps> = ({ playState }) => {
   let status: string;
 
   if (playState === matchStatuses[0]) {
@@ -19,7 +20,7 @@ const PlayLabel: FC<FCPlayLabel> = ({playState}) => {
 
   return (
     <div>
-      <span>YOU {status}</span>
+      <Label value={'YOU ' + status} />
     </div>
   );
 };

@@ -2,7 +2,7 @@ import * as React from 'react';
 import { FC } from 'react';
 
 interface LabelProps {
-  value: string
+  value: string;
 }
 
 export const Label: FC<LabelProps> = ({ value }) => (
