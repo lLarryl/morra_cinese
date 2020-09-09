@@ -1,6 +1,11 @@
 import * as React from 'react';
+import { FC } from 'react';
 import { Label } from '../Agnostic/Atoms/Label/Label';
 
-const CalculatorPointsLabel = ({ points }: {points: number}) => <Label value={"Calculator points: " + points} />;
+interface FCCalculatorPointsLabel {
+    points: number;
+}
+
+const CalculatorPointsLabel: FC<FCCalculatorPointsLabel> = ({ points }) => <Label value={"Calculator points: " + points} />;
 
 export default CalculatorPointsLabel;

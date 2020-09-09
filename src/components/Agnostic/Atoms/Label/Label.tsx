@@ -1,6 +1,11 @@
 import * as React from 'react';
+import { FC } from 'react';
 
-export const Label = ({ value }: {value: string}) => (
+interface LabelProps {
+  value: string
+}
+
+export const Label: FC<LabelProps> = ({ value }) => (
   <div>
     <span>{value}</span>
   </div>

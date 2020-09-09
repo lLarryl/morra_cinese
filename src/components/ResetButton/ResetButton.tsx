@@ -1,5 +1,10 @@
 import * as React from 'react';
+import { FC } from 'react';
 
-const ResetButton = ({ resetHandler }: {resetHandler: React.ReactEventHandler}) => <button onClick={resetHandler}>RESET</button>;
+interface FCResetButton {
+    resetHandler: React.ReactEventHandler;
+}
+
+const ResetButton: FC<FCResetButton> = ({ resetHandler }) => <button onClick={resetHandler}>RESET</button>;
 
 export default ResetButton;

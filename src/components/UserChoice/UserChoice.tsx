@@ -1,5 +1,11 @@
-import React, { ReactEventHandler } from 'react';
+import * as React from 'react';
+import { FC } from 'react';
 
-const UserChoice = ({ handleClick, value }: {handleClick: React.ReactEventHandler, value: string}) => <button onClick={handleClick}>{value}</button>;
+interface FCUserChoice {
+    handleClick: React.ReactEventHandler;
+    value: string;
+}
+
+const UserChoice: FC<FCUserChoice> = ({ handleClick, value }) => <button onClick={handleClick}>{value}</button>;
 
 export default UserChoice;

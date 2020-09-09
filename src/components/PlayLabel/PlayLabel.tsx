@@ -1,8 +1,13 @@
-import React from 'react';
+import * as React from 'react';
+import { FC } from 'react';
 import {matchStatuses} from './../../containers/MorraCinese/MorraCinese';
 
-const PlayLabel = ({playState}: {playState: string}) => {
-  let status = '';
+interface FCPlayLabel {
+  playState: string;
+}
+
+const PlayLabel: FC<FCPlayLabel> = ({playState}) => {
+  let status: string;
 
   if (playState === matchStatuses[0]) {
     status = 'WIN :D';

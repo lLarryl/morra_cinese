@@ -6,7 +6,7 @@ import PlayLabel from '../../components/PlayLabel/PlayLabel';
 import PlayersPoints from '../PlayersPoints/PlayersPoints';
 import ResetButton from '../../components/ResetButton/ResetButton';
 
-export const matchStatuses: string[] = ['WIN', 'LOOSE', 'TIE'];
+export const matchStatuses: Array<string> = ['WIN', 'LOOSE', 'TIE'];
 
 const MorraCinese = () => {
   const [calculatorChoice, setCalculatorChoice] = useState('');
@@ -14,7 +14,8 @@ const MorraCinese = () => {
   const [playState, setPlayState] = useState('');
   const [userPoints, setUserPoints] = useState(0);
   const [calculatorPoints, setCalculatorPoints] = useState(0);
-  const userChoiceValues: string[] = ['ROCK', 'SCISSORS', 'PAPER'];
+  const userChoiceValues: Array<string> = ['ROCK', 'SCISSORS', 'PAPER'];
+  const maxPoints: number = 10;
 
   function handleCalculatorChoice(userChoiceValue: string): void {
     setCalculatorChoice(userChoiceValues[Math.floor(Math.random() * userChoiceValues.length)]);
@@ -26,13 +27,13 @@ const MorraCinese = () => {
         if (userChoiceValue === calculatorChoice) {
             return matchStatuses[2];
         }
-        if (userChoiceValue === 'ROCK' && calculatorChoice === 'SCISSORS') {
+        if (userChoiceValue === userChoiceValues[0] && calculatorChoice === userChoiceValues[1]) {
             return matchStatuses[0];
         }
-        if (userChoiceValue === 'PAPER' && calculatorChoice === 'ROCK') {
+        if (userChoiceValue === userChoiceValues[2] && calculatorChoice === userChoiceValues[0]) {
             return matchStatuses[0];
         }
-        if (userChoiceValue === 'SCISSORS' && calculatorChoice === 'PAPER') {
+        if (userChoiceValue === userChoiceValues[1] && calculatorChoice === userChoiceValues[2]) {
             return matchStatuses[0];
         }
         return matchStatuses[1];
@@ -40,7 +41,7 @@ const MorraCinese = () => {
   }
 
   function determinePoints(): void {
-    if (userPoints === 10 || calculatorPoints === 10) {
+    if (userPoints === maxPoints || calculatorPoints === maxPoints) {
       resetPoints();
     }
     if (playState === matchStatuses[0]) {

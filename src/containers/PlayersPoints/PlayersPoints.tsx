@@ -1,8 +1,14 @@
 import * as React from 'react';
+import { FC } from 'react';
 import UserPointsLabel from '../../components/PlayersPointsLabel/UserPointsLabel';
 import CalculatorPointsLabel from '../../components/PlayersPointsLabel/CalculatorPointsLabel';
 
-const PlayerPoints = ({ userPoints, calculatorPoints}: {userPoints: number, calculatorPoints: number}) => {
+interface FCPlayerPoints {
+  userPoints: number;
+  calculatorPoints: number
+}
+
+const PlayerPoints: FC<FCPlayerPoints> = ({ userPoints, calculatorPoints}) => {
   return (
     <div>
       <UserPointsLabel points={userPoints} />
