@@ -1,5 +1,4 @@
-import * as React from 'react';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import UserChoice from '../../Atoms/UserChoice/UserChoice';
 import CalculatorChoiceLabel from '../../../CalculatorChoiceLabel/CalculatorChoiceLabel';
 import PlayLabel from '../../Atoms/PlayLabel/PlayLabel';

@@ -1,5 +1,4 @@
-import * as React from 'react';
-import { FC } from 'react';
+import React, { FC } from 'react';
 import UserPointsLabel from '../../Atoms/PlayersPointsLabel/UserPointsLabel';
 import CalculatorPointsLabel from '../../Atoms/PlayersPointsLabel/CalculatorPointsLabel';
 

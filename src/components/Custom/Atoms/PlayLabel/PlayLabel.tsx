@@ -1,5 +1,4 @@
-import * as React from 'react';
-import { FC } from 'react';
+import React, { FC } from 'react';
 import { matchStatuses } from '../../containers/MorraCinese/MorraCinese';
 import { Label } from '../../../Agnostic/Atoms/Label/Label';
 
@@ -8,14 +7,17 @@ interface PlayLabelProps {
 }
 
 const PlayLabel: FC<PlayLabelProps> = ({ playState }) => {
-  let status: string;
-
-  if (playState === matchStatuses[0]) {
-    status = 'WIN :D';
-  } else if (playState === matchStatuses[1]) {
-    status = 'LOOSE :(';
-  } else {
-    status = 'DID THE SAME...';
+  let status: string = determineStatus();
+  
+  function determineStatus(): string
+  {
+    if (playState === matchStatuses[0]) {
+      return 'WIN :D';
+    } else if (playState === matchStatuses[1]) {
+      return 'LOOSE :(';
+    } else {
+      return 'DID THE SAME...';
+    }
   }
 
   return (
