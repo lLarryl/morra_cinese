@@ -7,10 +7,7 @@ interface PlayLabelProps {
 }
 
 const PlayLabel: FC<PlayLabelProps> = ({ playState }) => {
-  let status: string = determineStatus();
-  
-  function determineStatus(): string
-  {
+  const status: () => string = (): string => {
     if (playState === matchStatuses[0]) {
       return 'WIN :D';
     } else if (playState === matchStatuses[1]) {
@@ -18,11 +15,11 @@ const PlayLabel: FC<PlayLabelProps> = ({ playState }) => {
     } else {
       return 'DID THE SAME...';
     }
-  }
+  };
 
   return (
     <div>
-      <Label value={'YOU ' + status} />
+      <Label value={'YOU ' + status()} />
     </div>
   );
 };
