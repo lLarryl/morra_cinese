@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Label } from '../Agnostic/Atoms/Label/Label';
+import { Label } from '../../Agnostic/Atoms/Label/Label';
 
 interface CalculatorChoiceLabelProps {
   choice: string;
