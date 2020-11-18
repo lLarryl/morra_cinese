@@ -33,11 +33,27 @@ In questa sezione viene mostrato cosa fare **dopo** aver clonato il progetto.
 
 ### INSTALL
 
-Lanciare il comando *yarn install* per installare tutte le dipendenze del progetto. In caso di successo, si può notare la creazione della cartella *node_modules*.
+Lanciare il comando
+
+```shell
+
+yarn install
+
+```
+
+per installare tutte le dipendenze del progetto. In caso di successo, si può notare la creazione della cartella *node_modules*.
 
 ### START
 
-Lanciare il comando *yarn start* per avviare l'applicazione. Il comando *yarn start* è alias di *react-scripts start* che è possibile visualizzare nel file *package.json* nella sezione *scripts*.
+Lanciare il comando
+
+```shell
+
+yarn start
+
+```
+
+per avviare l'applicazione. Il comando *yarn start* è alias di *react-scripts start* che è possibile visualizzare nel file *package.json* nella sezione *scripts*.
 
 ## GUIDA
 
