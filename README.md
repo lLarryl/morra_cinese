@@ -37,7 +37,7 @@ Lanciare il comando *yarn install* per installare tutte le dipendenze del proget
 
 ### START
 
-Lanciare il comando *yarn start* per avviare l'applicazione. Il comando *yarn start* è l'alias di un comando di script *react-scripts start* che è possibile visualizzare nel file *package.json* nella sezione *scripts*.
+Lanciare il comando *yarn start* per avviare l'applicazione. Il comando *yarn start* è alias di *react-scripts start* che è possibile visualizzare nel file *package.json* nella sezione *scripts*.
 
 ## GUIDA
 
