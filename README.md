@@ -5,8 +5,11 @@ App realizzata in *typescript* e *React* che riproduce il famoso gioco più comu
 ## INDICE
 
 * ### [PROGETTO](#PROGETTO)
-    * ##### [LINGUAGGI](#LINGUAGGI)
-    * ##### [FRAMEWORK](#FRAMEWORK)
+    * #### [LINGUAGGI](#LINGUAGGI)
+    * #### [FRAMEWORK](#FRAMEWORK)
+* ### [YARN](#YARN)
+    * #### [INSTALL](#INSTALL)
+    * #### [START](#START)
 * ### [GUIDA](#GUIDA)
 * ### [DEVELOPERS](#DEVELOPERS)
 
@@ -23,6 +26,18 @@ Inizialmente, il progetto è stato sviluppato in *javascript* ma in una sua seco
 ### FRAMEWORK
 
 Il framework utilizzato nel progetto è ***React*** ([qui](https://it.reactjs.org/) la documentazione ufficiale): l'allenamento nell'utilizzo di queste librerie è stato il motivo principale della nascita di questo esercizio pratico.
+
+## YARN
+
+In questa sezione viene mostrato cosa fare **dopo** aver clonato il progetto.
+
+### INSTALL
+
+Lanciare il comando *yarn install* per installare tutte le dipendenze del progetto. In caso di successo, si può notare la creazione della cartella *node_modules* (si consiglia di escludere questa cartella dal git).
+
+### START
+
+Lanciare il comando *yarn start* per avviare l'applicazione. Il comando *yarn start* è l'alias di un comando di script *react-scripts start* che è possibile visualizzare nel file *package.json* nella sezione *scripts*.
 
 ## GUIDA
 
