@@ -33,7 +33,7 @@ In questa sezione viene mostrato cosa fare **dopo** aver clonato il progetto.
 
 ### INSTALL
 
-Lanciare il comando *yarn install* per installare tutte le dipendenze del progetto. In caso di successo, si può notare la creazione della cartella *node_modules* (si consiglia di escludere questa cartella dal git).
+Lanciare il comando *yarn install* per installare tutte le dipendenze del progetto. In caso di successo, si può notare la creazione della cartella *node_modules*.
 
 ### START
 
