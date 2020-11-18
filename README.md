@@ -53,7 +53,7 @@ yarn start
 
 ```
 
-per avviare l'applicazione. Il comando *yarn start* è alias di *react-scripts start* che è possibile visualizzare nel file *package.json* nella sezione *scripts*.
+per avviare l'applicazione. Il comando ```yarn start``` è alias di ```react-scripts start``` che è possibile visualizzare nel file *package.json* nella sezione *scripts*.
 
 ## GUIDA
 
