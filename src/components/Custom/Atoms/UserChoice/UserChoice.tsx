@@ -1,6 +1,5 @@
 import React, { FC } from 'react';
 
-
 interface UserChoiceProps {
   handleClick: React.ReactEventHandler;
   value: string;
