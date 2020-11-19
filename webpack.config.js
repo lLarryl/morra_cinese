@@ -10,6 +10,9 @@ module.exports = {
     filename: 'bundle.[hash].js'
   },
   devtool: 'inline-source-map',
+  resolve: {
+    extensions: [".ts", ".tsx", ".js"]
+  },
   module: {
     rules: [
       {
@@ -18,20 +21,9 @@ module.exports = {
         use: ['babel-loader']
       },
       {
-        test: /\.css$/,
-        use: [
-          {
-            loader: 'style-loader'
-          },
-          {
-            loader: 'css-loader',
-            options: {
-              modules: true,
-              localsConvention: 'camelCase',
-              sourceMap: true
-            }
-          }
-        ]
+        test: /\.tsx?$/,
+        exclude: /node_modules/,
+        loader: "ts-loader"
       }
     ]
   },
