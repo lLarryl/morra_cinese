@@ -1,21 +1,25 @@
-import React from 'react';
-import { matchStatuses } from '../../containers/MorraCinese/MorraCinese';
-import { Label } from '../../../Agnostic/Atoms/Label/Label';
-var PlayLabel = function (_a) {
-    var playState = _a.playState;
-    var status = function () {
-        if (playState === matchStatuses[0]) {
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const react_1 = __importDefault(require("react"));
+const MorraCinese_1 = require("../../containers/MorraCinese/MorraCinese");
+const Label_1 = require("../../../Agnostic/Atoms/Label/Label");
+const PlayLabel = ({ playState }) => {
+    const status = () => {
+        if (playState === MorraCinese_1.matchStatuses[0]) {
             return 'WIN :D';
         }
-        else if (playState === matchStatuses[1]) {
+        else if (playState === MorraCinese_1.matchStatuses[1]) {
             return 'LOOSE :(';
         }
         else {
             return 'DID THE SAME...';
         }
     };
-    return (React.createElement("div", null,
-        React.createElement(Label, { value: 'YOU ' + status() })));
+    return (react_1.default.createElement("div", null,
+        react_1.default.createElement(Label_1.Label, { value: 'YOU ' + status() })));
 };
-export default PlayLabel;
+exports.default = PlayLabel;
 //# sourceMappingURL=PlayLabel.js.map

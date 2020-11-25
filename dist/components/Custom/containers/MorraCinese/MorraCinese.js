@@ -1,48 +1,73 @@
-import React, { useState, useEffect } from 'react';
-import UserChoice from '../../Atoms/UserChoice/UserChoice';
-import CalculatorChoiceLabel from '../../CalculatorChoiceLabel/CalculatorChoiceLabel';
-import PlayLabel from '../../Atoms/PlayLabel/PlayLabel';
-import PlayersPoints from '../PlayersPoints/PlayersPoints';
-import ResetButton from '../../Atoms/ResetButton/ResetButton';
-export var matchStatuses = ['WIN', 'LOOSE', 'TIE'];
-var MorraCinese = function () {
-    var _a = useState(''), calculatorChoice = _a[0], setCalculatorChoice = _a[1];
-    var _b = useState(''), userChoice = _b[0], setUserChoice = _b[1];
-    var _c = useState(''), playState = _c[0], setPlayState = _c[1];
-    var _d = useState(0), userPoints = _d[0], setUserPoints = _d[1];
-    var _e = useState(0), calculatorPoints = _e[0], setCalculatorPoints = _e[1];
-    var userChoiceValues = ['ROCK', 'SCISSORS', 'PAPER'];
-    var maxPoints = 10;
+"use strict";
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.matchStatuses = void 0;
+const react_1 = __importStar(require("react"));
+const UserChoice_1 = __importDefault(require("../../Atoms/UserChoice/UserChoice"));
+const CalculatorChoiceLabel_1 = __importDefault(require("../../CalculatorChoiceLabel/CalculatorChoiceLabel"));
+const PlayLabel_1 = __importDefault(require("../../Atoms/PlayLabel/PlayLabel"));
+const PlayersPoints_1 = __importDefault(require("../PlayersPoints/PlayersPoints"));
+const ResetButton_1 = __importDefault(require("../../Atoms/ResetButton/ResetButton"));
+exports.matchStatuses = ['WIN', 'LOOSE', 'TIE'];
+const MorraCinese = () => {
+    const [calculatorChoice, setCalculatorChoice] = react_1.useState('');
+    const [userChoice, setUserChoice] = react_1.useState('');
+    const [playState, setPlayState] = react_1.useState('');
+    const [userPoints, setUserPoints] = react_1.useState(0);
+    const [calculatorPoints, setCalculatorPoints] = react_1.useState(0);
+    const userChoiceValues = ['ROCK', 'SCISSORS', 'PAPER'];
+    const maxPoints = 10;
     function handleCalculatorChoice(userChoiceValue) {
         setCalculatorChoice(userChoiceValues[Math.floor(Math.random() * userChoiceValues.length)]);
         setUserChoice(userChoiceValue);
     }
     function checkPlayState(userChoiceValue) {
-        setPlayState(function () {
+        setPlayState(() => {
             if (userChoiceValue === calculatorChoice) {
-                return matchStatuses[2];
+                return exports.matchStatuses[2];
             }
             if (userChoiceValue === userChoiceValues[0] && calculatorChoice === userChoiceValues[1]) {
-                return matchStatuses[0];
+                return exports.matchStatuses[0];
             }
             if (userChoiceValue === userChoiceValues[2] && calculatorChoice === userChoiceValues[0]) {
-                return matchStatuses[0];
+                return exports.matchStatuses[0];
             }
             if (userChoiceValue === userChoiceValues[1] && calculatorChoice === userChoiceValues[2]) {
-                return matchStatuses[0];
+                return exports.matchStatuses[0];
             }
-            return matchStatuses[1];
+            return exports.matchStatuses[1];
         });
     }
     function determinePoints() {
         if (userPoints === maxPoints || calculatorPoints === maxPoints) {
             resetPoints();
         }
-        if (playState === matchStatuses[0]) {
-            setUserPoints(function (prevPoints) { return prevPoints + 1; });
+        if (playState === exports.matchStatuses[0]) {
+            setUserPoints((prevPoints) => prevPoints + 1);
             return;
         }
-        setCalculatorPoints(function (prevPoints) { return prevPoints + 1; });
+        setCalculatorPoints((prevPoints) => prevPoints + 1);
     }
     function resetPoints() {
         setUserPoints(0);
@@ -53,17 +78,17 @@ var MorraCinese = function () {
         setPlayState('');
         setCalculatorChoice('');
     }
-    useEffect(function () { return (calculatorChoice && userChoice ? checkPlayState(userChoice) : undefined); }, [
+    react_1.useEffect(() => (calculatorChoice && userChoice ? checkPlayState(userChoice) : undefined), [
         calculatorChoice,
         userChoice,
     ]);
-    useEffect(function () { return (playState && playState != matchStatuses[2] ? determinePoints() : undefined); }, [playState]);
-    return (React.createElement("div", { className: "App" },
-        React.createElement(CalculatorChoiceLabel, { choice: calculatorChoice }),
-        React.createElement("div", null, userChoiceValues.map(function (choiceValue) { return (React.createElement(UserChoice, { handleClick: function () { return handleCalculatorChoice(choiceValue); }, value: choiceValue, key: choiceValue })); })),
-        playState !== '' && React.createElement(PlayLabel, { playState: playState }),
-        React.createElement(PlayersPoints, { userPoints: userPoints, calculatorPoints: calculatorPoints }),
-        React.createElement(ResetButton, { resetHandler: handleReset })));
+    react_1.useEffect(() => (playState && playState != exports.matchStatuses[2] ? determinePoints() : undefined), [playState]);
+    return (react_1.default.createElement("div", { className: "App" },
+        react_1.default.createElement(CalculatorChoiceLabel_1.default, { choice: calculatorChoice }),
+        react_1.default.createElement("div", null, userChoiceValues.map((choiceValue) => (react_1.default.createElement(UserChoice_1.default, { handleClick: () => handleCalculatorChoice(choiceValue), value: choiceValue, key: choiceValue })))),
+        playState !== '' && react_1.default.createElement(PlayLabel_1.default, { playState: playState }),
+        react_1.default.createElement(PlayersPoints_1.default, { userPoints: userPoints, calculatorPoints: calculatorPoints }),
+        react_1.default.createElement(ResetButton_1.default, { resetHandler: handleReset })));
 };
-export default MorraCinese;
+exports.default = MorraCinese;
 //# sourceMappingURL=MorraCinese.js.map

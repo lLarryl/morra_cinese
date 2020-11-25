@@ -1,8 +1,10 @@
-import React from 'react';
-import { Label } from '../../../Agnostic/Atoms/Label/Label';
-var UserPointsLabel = function (_a) {
-    var points = _a.points;
-    return React.createElement(Label, { value: 'User points: ' + points });
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-export default UserPointsLabel;
+Object.defineProperty(exports, "__esModule", { value: true });
+const react_1 = __importDefault(require("react"));
+const Label_1 = require("../../../Agnostic/Atoms/Label/Label");
+const UserPointsLabel = ({ points }) => react_1.default.createElement(Label_1.Label, { value: 'User points: ' + points });
+exports.default = UserPointsLabel;
 //# sourceMappingURL=UserPointsLabel.js.map
