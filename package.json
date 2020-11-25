@@ -9,7 +9,8 @@
     "start": "webpack-dev-server",
     "format": "prettier --config ./.prettierrc.js --write \"./src/**/**/**/*.js\" \"./src/**/**/**/*.tsx\"",
     "format:check": "prettier --check \"./src/**/**/**/*.js\" \"./src/**/**/**/*.jsx\" \"./src/**/**/**/*.tsx\"",
-    "build": "tsc --p tsconfig.json"
+    "build": "tsc --p tsconfig.json",
+    "dev": "ts-node -P tsconfig.json src/index.tsx"
   },
   "dependencies": {
     "@types/react": "^16.9.56",
