@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import UserChoice from '../../Atoms/UserChoice/UserChoice';
-import CalculatorChoiceLabel from '../../CalculatorChoiceLabel/CalculatorChoiceLabel';
+import CalculatorChoiceLabel from '../../Atoms/CalculatorChoiceLabel/CalculatorChoiceLabel';
 import PlayLabel from '../../Atoms/PlayLabel/PlayLabel';
 import PlayersPoints from '../PlayersPoints/PlayersPoints';
 import ResetButton from '../../Atoms/ResetButton/ResetButton';
