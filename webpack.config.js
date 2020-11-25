@@ -1,25 +1,46 @@
-const path = require("path")
+const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+const port = process.env.PORT || 3000;
 
 module.exports = {
-  // Changed the entry point to a .tsx file
-  entry: "./src/index.tsx",
-  // Enable sourcemaps for debugging Webpack's output
-  devtool: "source-map",
-  resolve: {
-    // Add '.ts' and '.tsx' as resolvable extensions.
-    extensions: [".ts", ".tsx", ".js", ".json"]
-  },
+  mode: 'development',
+  entry: './src/index.tsx',
   output: {
-    path: path.join(__dirname, "/dist"),
-    filename: "index_bundle.js"
+    filename: 'bundle.[hash].js',
+  },
+  devtool: 'inline-source-map',
+  resolve: {
+    extensions: ['.ts', '.tsx', '.js'],
   },
   module: {
     rules: [
-      // All files with a '.ts' or '.tsx' extension will be handled by 'awesome-typescript-loader'.
-      { 
-        test: /\.tsx?$/, 
-        loader: "awesome-typescript-loader" 
-      }
-    ]
-  }
-}
+      {
+        test: /\.(js)$/,
+        exclude: /node_modules/,
+        use: ['babel-loader'],
+      },
+      {
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader'],
+      },
+      {
+        test: /\.tsx?$/,
+        exclude: /node_modules/,
+        loader: 'ts-loader',
+      },
+    ],
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: 'public/index.html',
+      favicon: 'public/favicon.ico',
+    }),
+  ],
+  devServer: {
+    host: 'localhost',
+    port: port,
+    historyApiFallback: true,
+    open: true,
+  },
+};

@@ -1,55 +1,40 @@
 {
-  "name": "morra_cinese_app",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-scripts": "3.4.3"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.9.0",
-    "@babel/plugin-proposal-class-properties": "^7.8.3",
-    "@babel/plugin-proposal-object-rest-spread": "^7.9.5",
-    "@babel/preset-env": "^7.9.5",
-    "@babel/preset-react": "^7.9.4",
-    "@babel/preset-typescript": "^7.9.0",
-    "awesome-typescript-loader": "^5.2.1",
-    "babel-loader": "^8.1.0",
-    "enzyme": "^3.11.0",
-    "enzyme-adapter-react-16": "^1.15.2",
-    "eslint": "^6.8.0",
-    "eslint-config-prettier": "^6.0.0",
-    "eslint-plugin-prettier": "^3.1.0",
-    "eslint-plugin-react": "^7.18.0",
-    "eslint-plugin-react-hooks": "^2.3.0",
-    "prettier": "^1.19.1",
-    "typescript": "^4.0.2"
-  },
+  "name": "morra_cinese",
+  "version": "1.0.0",
+  "main": "index.tsx",
+  "repository": "https://github.com/lLarryl/morra_cinese.git",
+  "author": "Vittorio Larovere <vittorio.larovere@nextmove.it>",
+  "license": "MIT",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "format": "prettier --config ./.prettierrc.js --write \"./src/**/**/**/*.js\" \"./src/**/**/**/*.jsx\" \"./src/**/**/**/*.tsx\"",
+    "start": "webpack-dev-server",
+    "format": "prettier --config ./.prettierrc.js --write \"./src/**/**/**/*.js\" \"./src/**/**/**/*.tsx\"",
     "format:check": "prettier --check \"./src/**/**/**/*.js\" \"./src/**/**/**/*.jsx\" \"./src/**/**/**/*.tsx\""
   },
-  "eslintConfig": {
-    "extends": "react-app"
+  "dependencies": {
+    "@types/react": "^16.9.56",
+    "@types/react-dom": "^16.9.9",
+    "eslint": "^7.14.0",
+    "prettier": "^2.1.2",
+    "prop-types": "^15.7.2",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-router-dom": "^5.2.0",
+    "semantic-ui-react": "^2.0.1",
+    "typescript": "^4.0.5"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "devDependencies": {
+    "@babel/core": "^7.12.3",
+    "@babel/plugin-proposal-class-properties": "^7.12.1",
+    "@babel/plugin-syntax-dynamic-import": "^7.8.3",
+    "@babel/preset-env": "^7.12.1",
+    "@babel/preset-react": "^7.12.5",
+    "babel-loader": "^8.2.1",
+    "css-loader": "^5.0.1",
+    "html-webpack-plugin": "^4.5.0",
+    "style-loader": "^2.0.0",
+    "ts-loader": "^8.0.11",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.7",
+    "webpack-dev-server": "^3.11.0"
   }
 }

@@ -44,10 +44,10 @@ const MorraCinese = () => {
       resetPoints();
     }
     if (playState === matchStatuses[0]) {
-      setUserPoints(prevPoints => prevPoints + 1);
+      setUserPoints((prevPoints) => prevPoints + 1);
       return;
     }
-    setCalculatorPoints(prevPoints => prevPoints + 1);
+    setCalculatorPoints((prevPoints) => prevPoints + 1);
   }
 
   function resetPoints(): void {
@@ -72,7 +72,7 @@ const MorraCinese = () => {
     <div className="App">
       <CalculatorChoiceLabel choice={calculatorChoice} />
       <div>
-        {userChoiceValues.map(choiceValue => (
+        {userChoiceValues.map((choiceValue) => (
           <UserChoice handleClick={() => handleCalculatorChoice(choiceValue)} value={choiceValue} key={choiceValue} />
         ))}
       </div>
