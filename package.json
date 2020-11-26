@@ -10,7 +10,8 @@
     "format": "prettier --config ./.prettierrc.js --write \"./src/**/**/**/*.js\" \"./src/**/**/**/*.tsx\"",
     "format:check": "prettier --check \"./src/**/**/**/*.js\" \"./src/**/**/**/*.jsx\" \"./src/**/**/**/*.tsx\"",
     "build": "tsc --p tsconfig.json",
-    "dev": "ts-node -P tsconfig.json src/index.tsx"
+    "dev": "ts-node -P tsconfig.json src/index.tsx",
+    "test": "jest"
   },
   "dependencies": {
     "@types/react": "^16.9.56",
@@ -28,11 +29,16 @@
     "@babel/core": "^7.12.3",
     "@babel/plugin-proposal-class-properties": "^7.12.1",
     "@babel/plugin-syntax-dynamic-import": "^7.8.3",
-    "@babel/preset-env": "^7.12.1",
-    "@babel/preset-react": "^7.12.5",
+    "@babel/preset-env": "^7.12.7",
+    "@babel/preset-react": "^7.12.7",
+    "@types/jest": "^26.0.15",
+    "@types/react-test-renderer": "^17.0.0",
+    "babel-jest": "^26.6.3",
     "babel-loader": "^8.2.1",
     "css-loader": "^5.0.1",
     "html-webpack-plugin": "^4.5.0",
+    "jest": "^26.6.3",
+    "react-test-renderer": "^17.0.1",
     "style-loader": "^2.0.0",
     "ts-loader": "^8.0.11",
     "ts-node": "^9.0.0",
