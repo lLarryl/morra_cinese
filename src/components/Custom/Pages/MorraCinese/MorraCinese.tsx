@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import UserChoice from '../../Atoms/UserChoice/UserChoice';
-import CalculatorChoiceLabel from '../../CalculatorChoiceLabel/CalculatorChoiceLabel';
+import CalculatorChoiceLabel from '../../Atoms/CalculatorChoiceLabel/CalculatorChoiceLabel';
 import PlayLabel from '../../Atoms/PlayLabel/PlayLabel';
 import PlayersPoints from '../PlayersPoints/PlayersPoints';
 import ResetButton from '../../Atoms/ResetButton/ResetButton';
@@ -55,6 +55,10 @@ const MorraCinese = () => {
     setCalculatorPoints(0);
   }
 
+  /**
+   * TODO: rivedere il tipo e la questione degli handler a sfavore
+   * delle funzioni specifiche per l'evento in causa
+   **/
   function handleReset(): void {
     resetPoints();
     setPlayState('');

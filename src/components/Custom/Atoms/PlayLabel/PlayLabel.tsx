@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { matchStatuses } from '../../containers/MorraCinese/MorraCinese';
+import { matchStatuses } from '../../Pages/MorraCinese/MorraCinese';
 import { Label } from '../../../Agnostic/Atoms/Label/Label';
 
 interface PlayLabelProps {

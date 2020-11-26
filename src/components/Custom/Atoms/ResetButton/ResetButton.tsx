@@ -1,9 +1,14 @@
 import React, { FC } from 'react';
+import { Button } from '../../../Agnostic/Atoms/Button/Button';
 
 interface ResetButtonProps {
-  resetHandler: React.ReactEventHandler;
+  /**
+   * TODO: rivedere il tipo, differisce da quello di Button e la questione degli handler a sfavore
+   * delle funzioni specifiche per l'evento in causa
+   **/
+  resetHandler: React.ReactEventHandler; 
 }
 
-const ResetButton: FC<ResetButtonProps> = ({ resetHandler }) => <button onClick={resetHandler}>RESET</button>;
+const ResetButton: FC<ResetButtonProps> = ({ resetHandler }) => <Button onClickHandler={resetHandler} value="RESET" />;
 
 export default ResetButton;
