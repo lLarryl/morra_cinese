@@ -2,6 +2,10 @@ import React, { FC } from 'react';
 
 interface ButtonProps {
   value: string;
+  /**
+   * TODO: rivedere il tipo e la questione degli handler a sfavore
+   * delle funzioni specifiche per l'evento in causa
+   **/
   onClickHandler: React.MouseEventHandler;
 }
 

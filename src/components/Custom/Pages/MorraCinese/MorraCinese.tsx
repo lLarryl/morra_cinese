@@ -55,6 +55,10 @@ const MorraCinese = () => {
     setCalculatorPoints(0);
   }
 
+  /**
+   * TODO: rivedere il tipo e la questione degli handler a sfavore
+   * delle funzioni specifiche per l'evento in causa
+   **/
   function handleReset(): void {
     resetPoints();
     setPlayState('');
