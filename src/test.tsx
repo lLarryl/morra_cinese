@@ -6,6 +6,6 @@ test('Label has text', () => {
     const component = renderer.create(
       <Label value="testo di test" />,
     );
-    let result = component.toJSON();
-    expect(result).toMatchSnapshot();
+    let expectedValue = component.root.findByType(Label).props.value;
+    expect(expectedValue).toBe("testo di test");
 });
