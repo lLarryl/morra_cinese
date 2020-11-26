@@ -5,6 +5,6 @@ interface ResetButtonProps {
   resetHandler: React.ReactEventHandler;
 }
 
-const ResetButton: FC<ResetButtonProps> = ({ resetHandler }) => <Button handler={resetHandler} value="RESET" />;
+const ResetButton: FC<ResetButtonProps> = ({ resetHandler }) => <Button onClickHandler={resetHandler} value="RESET" />;
 
 export default ResetButton;

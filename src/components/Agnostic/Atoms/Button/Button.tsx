@@ -2,11 +2,7 @@ import React, { FC } from 'react';
 
 interface ButtonProps {
   value: string;
-  handler: React.ReactEventHandler;
+  onClickHandler: React.MouseEventHandler;
 }
 
-export const Button: FC<ButtonProps> = ({ handler, value }) => (
-  <div>
-    <button onClick={handler}>{value}</button>
-  </div>
-);
+export const Button: FC<ButtonProps> = ({ onClickHandler, value }) => <button onClick={onClickHandler}>{value}</button>;

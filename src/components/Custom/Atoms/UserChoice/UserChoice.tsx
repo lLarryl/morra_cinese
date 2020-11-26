@@ -6,6 +6,6 @@ interface UserChoiceProps {
   value: string;
 }
 
-const UserChoice: FC<UserChoiceProps> = ({ handleClick, value }) => <Button handler={handleClick} value={value}/>;
+const UserChoice: FC<UserChoiceProps> = ({ handleClick, value }) => <Button onClickHandler={handleClick} value={value}/>;
 
 export default UserChoice;
