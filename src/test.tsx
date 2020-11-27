@@ -1,11 +1,10 @@
 import { Label } from './components/Agnostic/Atoms/Label/Label';
 import React from 'react';
-import renderer from 'react-test-renderer';
+import { shallow } from 'enzyme';
 
-test('Label has text', () => {
-    const component = renderer.create(
-      <Label value="testo di test" />,
-    );
-    let expectedValue = component.root.findByType(Label).props.value;
-    expect(expectedValue).toBe("testo di test");
+describe('Label', () => {
+  test('should have text', () => {
+    const component = shallow(<Label value="testo di test" />);
+    expect(component.text()).toBe('testo di test');
+  });
 });

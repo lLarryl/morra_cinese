@@ -15,8 +15,11 @@
   },
   "dependencies": {
     "@babel/preset-typescript": "^7.12.7",
+    "@types/enzyme": "^3.10.8",
     "@types/react": "^16.9.56",
     "@types/react-dom": "^16.9.9",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.5",
     "eslint": "^7.14.0",
     "prettier": "^2.1.2",
     "prop-types": "^15.7.2",
@@ -40,6 +43,7 @@
     "css-loader": "^5.0.1",
     "html-webpack-plugin": "^4.5.0",
     "jest": "^26.6.3",
+    "jest-enzyme": "^7.1.2",
     "react-test-renderer": "^17.0.1",
     "style-loader": "^2.0.0",
     "ts-loader": "^8.0.11",
@@ -47,5 +51,10 @@
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.7",
     "webpack-dev-server": "^3.11.0"
+  },
+  "jest": {
+    "setupFilesAfterEnv": [
+      "./src/setupTests.js"
+    ]
   }
 }
